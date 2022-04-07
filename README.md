@@ -2,7 +2,7 @@
 
 **_Projects_**
 
-1. [Reactor](https://github.com/brunomilitzer/Codility/blob/master/src/main/java/com/brunomilitzer/reactive-programming/reactor/binarygap.md)
+1. [Reactor](https://github.com/brunomilitzer/reactive-programming/tree/master/reactor)
 
 **Specifications**
 
