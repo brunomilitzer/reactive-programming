@@ -1,4 +1,4 @@
-package com.brunomilitzer.reactive.assignment.sec01;
+package com.brunomilitzer.reactive.sec01.assignment;
 
 import reactor.core.publisher.Mono;
 

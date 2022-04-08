@@ -1,6 +1,6 @@
 package com.brunomilitzer.reactive.sec01;
 
-import com.brunomilitzer.reactive.assignment.sec01.FileService;
+import com.brunomilitzer.reactive.sec01.assignment.FileService;
 import com.brunomilitzer.reactive.util.Util;
 
 public class Lecture09Assignment {
