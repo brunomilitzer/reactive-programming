@@ -11,11 +11,13 @@ public class Lecture04FluxCreateIssueFix {
         Flux.create(fluxSink -> {
 
             String country;
+            int counter = 0;
             do {
                 country = Util.faker().country().name();
                 System.out.println("emitting : " + country);
                 fluxSink.next(country);
-            } while (!country.toLowerCase().startsWith("brazil") && !fluxSink.isCancelled());
+                counter++;
+            } while (!country.toLowerCase().startsWith("brazil") && !fluxSink.isCancelled() && counter < 10);
 
             fluxSink.complete();
 
