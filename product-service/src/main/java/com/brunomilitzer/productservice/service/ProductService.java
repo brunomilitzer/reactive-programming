@@ -30,7 +30,7 @@ public class ProductService {
         return this.repository.findById(id).map(EntityDtoUtil::toDTO);
     }
 
-    public Flux<ProductDTO> getProductByPriceRange(BigDecimal min, BigDecimal max) {
+    public Flux<ProductDTO> getProductByPriceRange(Integer min, Integer max) {
         return this.repository.findByPriceBetween(Range.closed(min, max))
                 .map(EntityDtoUtil::toDTO);
     }

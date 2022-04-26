@@ -1,17 +1,15 @@
 package com.brunomilitzer.productservice.dto;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
-
-import java.math.BigDecimal;
+import lombok.*;
 
 @Data
 @Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductDTO {
 
     private String id;
     private String description;
-    private BigDecimal price;
+    private Integer price;
 }

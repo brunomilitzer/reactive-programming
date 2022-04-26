@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.math.BigDecimal;
-
 @RestController
 @RequestMapping("product")
 public class ProductController {
@@ -42,7 +40,7 @@ public class ProductController {
 
     @GetMapping("price-range")
     public Flux<ProductDTO> getByPriceRange(
-            @RequestParam("min") BigDecimal min, @RequestParam("max") BigDecimal max) {
+            @RequestParam("min") Integer min, @RequestParam("max") Integer max) {
         return this.service.getProductByPriceRange(min, max);
     }
 
