@@ -4,6 +4,7 @@
 
 1. [Reactor](https://github.com/brunomilitzer/reactive-programming/tree/master/reactor)
 2. [Web Flux Demo](https://github.com/brunomilitzer/reactive-programming/tree/master/webflux-demo)
+3. [Product Service](https://github.com/brunomilitzer/reactive-programming/tree/master/product-service)
 
 **Specifications**
 
