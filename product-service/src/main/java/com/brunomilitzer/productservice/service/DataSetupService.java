@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+import java.util.concurrent.ThreadLocalRandom;
+
 @Service
 public class DataSetupService implements CommandLineRunner {
 
@@ -25,6 +28,13 @@ public class DataSetupService implements CommandLineRunner {
         ProductDTO product4 = ProductDTO.builder().description("Samsung Galaxy S20+").price(1250).build();
 
         Flux.just(product1, product2, product3, product4)
+                .concatWith(newProducts())
                 .flatMap(p -> this.productService.insertProduct(Mono.just(p))).subscribe(System.out::println);
+    }
+
+    private Flux<ProductDTO> newProducts() {
+        return Flux.range(1, 1000).delayElements(Duration.ofSeconds(2))
+                .map(i -> new ProductDTO("product-" + i, ThreadLocalRandom.current()
+                        .nextInt(10, 100)));
     }
 }
