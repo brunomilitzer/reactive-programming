@@ -18,9 +18,11 @@ public class EntityDtoUtil {
     }
 
     public static void setTransactionRequestDTO(RequestContext requestContext) {
-        requestContext.setTransactionRequestDTO(TransactionRequestDTO.builder()
-                .userId(requestContext.getTransactionRequestDTO().getUserId())
-                .amount(requestContext.getProductDTO().getPrice()).build());
+        TransactionRequestDTO dto = new TransactionRequestDTO();
+        dto.setUserId(requestContext.getPurchaseOrderRequestDTO().getUserId());
+        dto.setAmount(requestContext.getProductDTO().getPrice());
+
+        requestContext.setTransactionRequestDTO(dto);
     }
 
     public static PurchaseOrder getPurchaseOrder(RequestContext requestContext) {

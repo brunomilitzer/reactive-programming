@@ -2,9 +2,11 @@ package com.brunomilitzer.orderservice.client;
 
 import com.brunomilitzer.orderservice.dto.TransactionRequestDTO;
 import com.brunomilitzer.orderservice.dto.TransactionResponseDTO;
+import com.brunomilitzer.orderservice.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -19,5 +21,9 @@ public class UserClient {
     public Mono<TransactionResponseDTO> authorizeTransaction(TransactionRequestDTO requestDTO) {
         return this.webClient.post().uri("transaction").bodyValue(requestDTO)
                 .retrieve().bodyToMono(TransactionResponseDTO.class);
+    }
+
+    public Flux<UserDTO> getAllUsers() {
+        return this.webClient.get().uri("all").retrieve().bodyToFlux(UserDTO.class);
     }
 }

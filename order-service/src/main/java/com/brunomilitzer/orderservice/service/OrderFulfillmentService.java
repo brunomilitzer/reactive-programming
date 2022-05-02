@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
+import reactor.util.retry.Retry;
+
+import java.time.Duration;
 
 @Service
 public class OrderFulfillmentService {
@@ -41,11 +44,12 @@ public class OrderFulfillmentService {
 
     private Mono<RequestContext> productRequestResponse(RequestContext rc) {
         return this.productClient.getProductById(rc.getPurchaseOrderRequestDTO().getProductId())
-                .doOnNext(rc::setProductDTO).thenReturn(rc);
+                .doOnNext(rc::setProductDTO).retryWhen(Retry.fixedDelay(5, Duration.ofSeconds(1)))
+                .thenReturn(rc);
     }
 
     private Mono<RequestContext> userRequestResponse(RequestContext rc) {
         return this.userClient.authorizeTransaction(rc.getTransactionRequestDTO())
-                .doOnNext(rc::setTransactionResponseDTO).thenReturn(rc);
+                .doOnNext(rc::setTransactionResponseDTO).doOnNext(System.out::println).thenReturn(rc);
     }
 }
