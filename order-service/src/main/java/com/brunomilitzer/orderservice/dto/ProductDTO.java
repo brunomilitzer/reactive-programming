@@ -1,4 +1,4 @@
-package com.brunomilitzer.productservice.dto;
+package com.brunomilitzer.orderservice.dto;
 
 import lombok.*;
 
