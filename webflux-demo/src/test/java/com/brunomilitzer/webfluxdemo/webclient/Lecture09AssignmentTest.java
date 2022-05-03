@@ -1,4 +1,4 @@
-package com.brunomilitzer.webfluxdemo;
+package com.brunomilitzer.webfluxdemo.webclient;
 
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;

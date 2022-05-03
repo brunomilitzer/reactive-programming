@@ -1,4 +1,4 @@
-package com.brunomilitzer.webfluxdemo;
+package com.brunomilitzer.webfluxdemo.webclient;
 
 import com.brunomilitzer.webfluxdemo.dto.Response;
 import org.junit.jupiter.api.Test;

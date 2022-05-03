@@ -1,11 +1,11 @@
-package com.brunomilitzer.webfluxdemo;
+package com.brunomilitzer.webfluxdemo.webclient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-class BaseTest {
+public abstract class BaseTest {
 
     @Autowired
     private WebClient webClient;

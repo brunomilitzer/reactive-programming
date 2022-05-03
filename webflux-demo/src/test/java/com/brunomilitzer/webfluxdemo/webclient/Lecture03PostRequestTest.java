@@ -1,4 +1,4 @@
-package com.brunomilitzer.webfluxdemo;
+package com.brunomilitzer.webfluxdemo.webclient;
 
 import com.brunomilitzer.webfluxdemo.dto.MultiplyRequest;
 import com.brunomilitzer.webfluxdemo.dto.Response;
@@ -6,12 +6,11 @@ import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-public class Lecture08AttributesTest extends BaseTest {
+public class Lecture03PostRequestTest extends BaseTest {
 
     @Test
-    public void attributesTest() {
-        Mono<Response> responseMono = this.getWebClient().post().uri("reactive-math/multiply")
-                .bodyValue(buildRequest(5, 2))
+    public void postTest() {
+        Mono<Response> responseMono = this.getWebClient().post().uri("reactive-math/multiply").bodyValue(buildRequest(5, 2))
                 .retrieve().bodyToMono(Response.class).doOnNext(System.out::println);
 
         StepVerifier.create(responseMono).expectNextCount(1).verifyComplete();
